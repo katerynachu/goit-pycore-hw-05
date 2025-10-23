@@ -1,16 +1,16 @@
 import re
 
 def generator_numbers(text:str):
-    pattern = r"\b\d+\.\d+\b|\b\d+\b"
+    pattern = r"\b\d+\.\d+\b|\b\d+\b" # Regex pattern
     num = re.findall(pattern, text)
     for i in num:
-        yield float(i)
+        yield float(i) # 'yield' makes this function a generator
 
 
 def sum_profit(text: str, func: callable):
-    number_generator = func(text)
+    number_generator = func(text) # Get the generator object
     total = sum(number_generator)
-    return total
+    return total # Calculate the total sum efficiently
 
 
 def main():
